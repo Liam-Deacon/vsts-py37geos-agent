@@ -55,7 +55,9 @@ RUN pip install --no-cache-dir numpy scipy pandas geopandas 'pyproj>=2.2.0' cart
 # Clean system
 RUN apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
- && rm -rf /etc/apt/sources.list.d/*
+ && rm -rf /etc/apt/sources.list.d/* \
+ && mkdir -p /var/lib/apt/lists/ \
+ && mkdir -p /etc/apt/sources.list.d/
 
 #RUN ln -sf `which pip3.7` /usr/bin/pip3 \
 #  && ln -sf `which pip3.7` /usr/bin/pip
