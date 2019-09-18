@@ -3,7 +3,7 @@ FROM microsoft/vsts-agent:ubuntu-16.04
 # Install Python3.7
 RUN add-apt-repository ppa:deadsnakes/ppa \
   && apt-get update -y \
-  && apt-get install -y python3.7 python3.7-dev git build-essential \
+  && apt-get install -y python3.7 python3.7-dev python3-venv git build-essential \
   && ln -sf `which python3.7` /usr/bin/python3 \
   && curl https://bootstrap.pypa.io/get-pip.py | python3 \
   && apt-get clean \
