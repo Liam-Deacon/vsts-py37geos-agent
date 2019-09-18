@@ -15,9 +15,8 @@ RUN add-apt-repository ppa:deadsnakes/ppa \
 # install key python libraries
 #RUN /bin/bash -c "source $CONDA/bin/activate \ 
 #  && pip install geopandas contextily pint folium IPython beautifulsoup4 requests astropy NavPy geopy"
-# install key docs packages
-#RUN /bin/bash -c "source $CONDA/bin/activate \
-#  && pip install pbr docutils sphinx"
+# install key python packages
+RUN pip install pbr docutils sphinx setuptools
 #RUN /bin/bash -c "source $CONDA/bin/activate \
 #  && pip install sphinx-autodoc-napoleon-typehints javasphinx sphinx-fortran \
 #sphinx-git sphinx-markdown-builder \
