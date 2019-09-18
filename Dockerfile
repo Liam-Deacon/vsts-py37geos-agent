@@ -10,13 +10,20 @@ RUN add-apt-repository ppa:deadsnakes/ppa \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /etc/apt/sources.list.d/*
 
+# Install dotnet core for coverage reporting
+RUN wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+  && dpkg -i packages-microsoft-prod.deb \
+  && apt-get update \
+  && apt-get install -y dotnet-runtime-2.2 \
+  && rm -rf /var/lib/apt/lists/*
+
 #  && conda install -y pyproj>=2.2 shapely cartopy descartes lxml numpy scipy matplotlib pandas \
 #  && rm -rf $CONDA/pkgs/*"
 # install key python libraries
 #RUN /bin/bash -c "source $CONDA/bin/activate \ 
 #  && pip install geopandas contextily pint folium IPython beautifulsoup4 requests astropy NavPy geopy"
 # install key python packages
-RUN pip install pbr docutils sphinx setuptools
+RUN pip install --no-cache-dir pbr docutils sphinx setuptools
 #RUN /bin/bash -c "source $CONDA/bin/activate \
 #  && pip install sphinx-autodoc-napoleon-typehints javasphinx sphinx-fortran \
 #sphinx-git sphinx-markdown-builder \
